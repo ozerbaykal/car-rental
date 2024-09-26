@@ -1,32 +1,42 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Filter from "./components/filter"
 import Header from "./components/header"
 import Hero from "./components/hero"
 import SearcBar from "./components/searchbar"
 import fetchCars from "./utils/fetchCars"
 import { CarType } from "./types"
-import { div, section } from "framer-motion/client"
+
 import Warning from './components/warning/index';
 import Card from "./components/card"
 import LoadMore from "./components/loadmore"
+import { useSearchParams } from "react-router-dom"
+import Year from "./components/filter/year"
 
 
 const App = () => {
+  const [params, setParams] = useSearchParams()
   const [cars, setCars] = useState<CarType[] | null>(null)
   const [isError, setisError] = useState<boolean>(false)
   const[limit,setLimit]=useState<number>(5)
   useEffect(() => {
-    fetchCars()
+    //url deki tüm paramları bir nesne haline getir    
+    const paramsObj=Object.fromEntries(params.entries())
+    fetchCars({limit,...paramsObj})
       .then((data) => setCars(data))
       .catch(() => setisError(true))
-  }, [])
+  }, [limit,params])   
+  
+  const catalogueRef =useRef<HTMLDivElement>(null)     
 
 
   return (
     <div className="min-h-screen text-white bg-[rgb(23,23,23)]">
       <Header />
-      <Hero />
-      <div className="mt-12 padding-x padding-y max-width">
+      <Hero catalogueRef={catalogueRef} />
+      <div 
+    
+    ref={catalogueRef}
+      className="mt-12 padding-x padding-y max-width">
         <div className="home__text-container">
           <h1 className="text-4xl font-extrabold">Araba Kataloğu</h1>
           <p > Beğenebileceğin arabaları keşfet</p>
@@ -35,7 +45,7 @@ const App = () => {
           <SearcBar />
           <div className="home__filter-container">
             <Filter />
-            <Filter />
+            <Year/>
           </div>
         </div>
         {/* Araçları listeleme

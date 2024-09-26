@@ -1,8 +1,17 @@
 import Button from "../button"
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 
+type Props = {
+    //useRef ile referansı alınan bir elementin tipini tanımlarken RefObject kullanırız
+    catalogueRef: React.RefObject<HTMLDivElement>
+}
 
-const Hero = () => {
+const Hero = ({ catalogueRef }: Props) => {
+//katalog alanına sürükleyecek fonk
+    const handleClick = () => {
+        catalogueRef.current?.scrollIntoView({behavior:"smooth"})
+
+    }
 
     return (
         <div className="hero">
@@ -12,21 +21,21 @@ const Hero = () => {
                     Altın standartta hizmetle unutulmaz bir yolculuğa hazır mısın ?
                     Araç kiralama deneyimini Altın Seçenekleri ile taçlandırarak her anını özel kılabilirsin.
                 </p>
-                <Button title={"Arabaları Keşfet"} designs={"mt-10"} />
+                <Button handleClick={handleClick} title={"Arabaları Keşfet"} designs={"mt-10"} />
 
             </div>
-            <div className="flex justify-center"> 
+            <div className="flex justify-center">
                 <motion.img initial={{
-                    translateX:200,
-                    scale : 0.5,
-                }} 
-                animate={{
-                    translateX:0,
-                    scale:1,
-
+                    translateX: 200,
+                    scale: 0.5,
                 }}
-                transition={{duration: 0.8}}
-                className="object-contain" src="/hero.png" alt="bmw" />
+                    animate={{
+                        translateX: 0,
+                        scale: 1,
+
+                    }}
+                    transition={{ duration: 0.8 }}
+                    className="object-contain" src="/hero.png" alt="bmw" />
             </div>
         </div>
     );
