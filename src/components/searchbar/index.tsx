@@ -8,7 +8,7 @@ import { useSearchParams } from "react-router-dom"
 
 const Button = ({ designs }: { designs?: string }) => {
   return (
-    <button className={`ml-3${designs}`}>
+    <button className={`ml-3 ${designs}`}>
       <img src="/search.svg" width={40} height={40} />
     </button>
   )
@@ -16,7 +16,7 @@ const Button = ({ designs }: { designs?: string }) => {
 
 
 
-const SearcBar = () => {
+const SearchBar = () => {
   const [params, setParams] = useSearchParams()
 
   const [make, setMake] = useState<string>("")
@@ -36,29 +36,33 @@ const selected ={
   label:params.get("make"),
   value:params.get("make"),
 }
-  return (
-    <form onSubmit={handleSubmit} className="searchbar gap-3">
-      <div className="searchbar__item">
-        <ReactSelect
+return (
+  <form onSubmit={handleSubmit} className="searchbar gap-3">
+    <div className="searchbar__item ">
+      <ReactSelect
         defaultValue={selected}
-          onChange={(e) => e && setMake(e?.value || "")}
-          options={options} placeholder="Marka Seçiniz" className="w-full text-black" />
-        <Button designs="sm:hidden" />
-      </div>
-      <div className="searchbar__item">
-        <img src="/model-icon.png" className="absolute ml-4" width={25} alt="" />
-        <input
-          defaultValue={params.get("model") || ""}
-          type="text"
-          className="searchbar__input rounded text-black"
-          placeholder="örn :Civic"
-          onChange={(e) => setModel(e.target.value)}
-        />
-        <Button />
-      </div>
+        options={options}
+        placeholder="Marka Seçiniz"
+        className="w-full text-black"
+        onChange={(e) => e && setMake(e.value || "")}
+      />
 
-    </form>
-  )
-}
+      <Button designs="sm:hidden" />
+    </div>
+    <div className="searchbar__item">
+      <img src="/model-icon.png" className="absolute ml-4" width={25} />
+      <input
+        defaultValue={params.get("model") || ""}
+        type="text"
+        className="searchbar__input rounded text-black"
+        placeholder="örn:Civic"
+        onChange={(e) => setModel(e.target.value)}
+      />
 
-export default SearcBar
+      <Button />
+    </div>
+  </form>
+);
+};
+
+export default  SearchBar;

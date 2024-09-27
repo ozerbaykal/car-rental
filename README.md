@@ -1,30 +1,109 @@
-# React + TypeScript + Vite
+# Car Rental Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a Car Rental Application developed using React and TypeScript. The application allows users to filter and list cars, and easily access detailed information about each vehicle through modal windows. It offers a fully user-friendly and responsive design, ensuring a seamless experience across all devices.
 
-Currently, two official plugins are available:
+## Video gif ##
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![](./public/images/rental.gif)
 
-## Expanding the ESLint configuration
+## Main Page ##
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+![](./public/images/rental1.png)
 
-- Configure the top-level `parserOptions` property like this:
+## cars List View ##
+![](./public/images/rental2.png)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+## cars Detail ##
+![](./public/images/rental3.png)
+
+
+
+### Table of Contents
+
+- Features
+- Technologies Used
+- Installation
+- Contributing
+- Contact
+
+## Features
+
+- User-Friendly Interface: Intuitive and easy-to-navigate design.
+- Responsive Design: Optimized for both mobile and desktop devices.
+- Car Listing: Displays cars in a list format based on user-applied filters.
+-Filtering and Search:
+  - Car Name
+  - Model
+  - Fuel Type
+  - Year
+- Animated Card Structures: Visually appealing animated cards for car listings.
+- Modal for Car Details: Users can access detailed information about listed cars through animated modal windows.
+- State Management: Efficient state management using useState.
+- API Integration: Fetches car data using the native fetch API.
+- Advanced Select Components: User-friendly and customizable selection menus implemented with react-select.
+- Routing: Easy navigation between pages using react-router-dom.
+
+## Technologies Used
+
+- React - Frontend library.
+- TypeScript - For static type checking and enhancing code quality.
+- Tailwind CSS - For styling and responsive design.
+- Framer Motion - For animations and modal transitions.
+- Fetch API - For handling API requests.
+- React Router Dom - For client-side routing.
+- React Select - For advanced and customizable selection components.
+
+
+
+## Installation
+
+- Clone the project to your local machine:
+  git clone https://github.com/ozerbaykal/car-rental.git
+
+- Navigate to the project directory:
+
+```
+cd car-rental
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Install the necessary packages:
+
+```
+npm install
+```
+
+### or
+
+```
+yarn install
+```
+
+## Usage
+
+- Start the development server:
+
+```
+npm run dev
+```
+
+### or
+
+```
+yarn dev
+```
+
+<h2>Contributing</h2>
+
+Contributions are welcome! Please open an issue first to discuss what you would like to change.
+
+- 1.Fork the project
+- 2.Create your feature branch (git checkout -b feature/NewFeature)
+- 3.Commit your changes (git commit -m 'Add new feature')
+- 4.Push to the branch (git push origin feature/NewFeature)
+- 5.Open a Pull Request
+
+<h2>Contact</h2>
+
+Özer BAYKAL mail : baykalozer87@gmail.com
+
+Project Link: https://github.com/ozerbaykal/car-rental

@@ -6,9 +6,9 @@ const Filter = () => {
   const[params,setParams]=useSearchParams()
   const selected ={
     label:params.get("fuel_type"),
-    value:params.get("fuel_type")
+    value:params.get("fuel_type"),
    
-  }
+  };
   return (
     <div>
       <ReactSelect 
@@ -20,7 +20,7 @@ const Filter = () => {
       }}
       options={fuels} className="text-black" defaultValue={selected}/>
     </div>
-  )
-}
+  );
+};
 
 export default Filter

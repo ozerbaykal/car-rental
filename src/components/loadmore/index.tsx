@@ -1,4 +1,4 @@
-import Button from "../button"
+import Button from "../button";
 
 type Props = {
     limit: number;
@@ -12,7 +12,7 @@ const LoadMore = ({ limit, handleClick }: Props) => {
 
 
         </div>
-    )
-}
+    );
+};
 
-export default LoadMore
+export default LoadMore;

@@ -6,7 +6,7 @@ import { CarType } from "../../types"
 type Props = {
 
     img: string,
-    text: string
+    text: string,
 }
 
 const Field = ({ img, text }: Props) => {
@@ -26,8 +26,8 @@ const Field = ({ img, text }: Props) => {
             <p>{text}</p>
         </motion.div>
 
-    )
-}
+    );
+};
 
 const Info = ({ car }: { car: CarType }) => {
     const transmission = car.transmission === "a" ? "Otomatik" : "Manuel"

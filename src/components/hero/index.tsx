@@ -7,18 +7,18 @@ type Props = {
 }
 
 const Hero = ({ catalogueRef }: Props) => {
-//katalog alanına sürükleyecek fonk
+    //katalog alanına sürükleyecek fonk
     const handleClick = () => {
-        catalogueRef.current?.scrollIntoView({behavior:"smooth"})
+        catalogueRef.current?.scrollIntoView({ behavior: "smooth" })
 
     }
 
     return (
         <div className="hero">
-            <div className="pt-16 padding-x flex-1 max-h-[920px]">
+            <div className="pt-36 padding-x flex-1 max-h-[920px]">
                 <h1 className="hero__title">Özgürlüğü Hisset,Yolculuğa Başla</h1>
                 <p className="hero__subtitle">
-                    Altın standartta hizmetle unutulmaz bir yolculuğa hazır mısın ?
+                    Altın standartta hizmetle unutulmaz bir yolculuğa hazır mısın?
                     Araç kiralama deneyimini Altın Seçenekleri ile taçlandırarak her anını özel kılabilirsin.
                 </p>
                 <Button handleClick={handleClick} title={"Arabaları Keşfet"} designs={"mt-10"} />
@@ -41,4 +41,4 @@ const Hero = ({ catalogueRef }: Props) => {
     );
 };
 
-export default Hero
+export default Hero;
